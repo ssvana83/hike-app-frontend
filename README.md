@@ -5,9 +5,13 @@ Take a Hike! App
 Access my site at [link](http://localhost:3000/hikes)
 
 # Table of Contents:
--[About the App](#About-the-App)
- -[Screenshots](#Screenshots)
- -[Available Scripts](#Available-Scripts)
+[About the App](#About-the-App)
+
+[Screenshots](#Screenshots)
+
+[Setup](#Setup)
+
+[Available Scripts](#Available-Scripts)
 
 # About the App
 Take a Hike! is an app that can help anyone looking for a hiking trail find one easily. Users can view hiking trails in different states throughout the country. Not only can the user access the names of hiking trails, they can view specific information about the trails such as distance in miles, estimated time to complete the trail and also how challenging of a trail it is. Users can add their favorite trails using the New Hike Form.
@@ -16,6 +20,20 @@ Take a Hike! is an app that can help anyone looking for a hiking trail find one 
 # Screenshots
 <img width="1440" alt="Screen Shot 2023-06-14 at 6 30 28 PM" src="https://github.com/ssvana83/hike-app-frontend/assets/98608384/b9eba5c9-c06e-478d-adac-7d8288e46bcf">
 
+# Setup
+
+All the hike data can be found 
+
+  1. Run `npm install` in your terminal to install dependencies.
+  2. Run `npm run server`. This will run your backend on port 3000.
+  3. In a new terminal, run `npm start` to start up our React app at `localhost:3000`.
+
+  Make sure to open[http://localhost:9393/hikes](http://localhost:9393/hikes)
+  in the browser to verify that your backend is working before you proceed.
+
+## Endpoints
+
+The base URL for your backend is: `http://localhost:3000`
 
 # Getting Started with Create React App
 
