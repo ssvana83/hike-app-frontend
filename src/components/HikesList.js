@@ -1,6 +1,6 @@
 
 
-const HikesList = () => {
+const HikesList = ({hikes}) => {
   return (
     <div>HikesList</div>
   )
