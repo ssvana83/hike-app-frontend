@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
+import Home from "./components/Home";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
+import HikeCard from "./components/HikeCard";
+import HikeForm from "./components/HikeForm";
+import HikesContainer from "./containers/HikesContainer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Navbar />
+        <Header slogan="Take a Hike!" storename="The Hikers Companion" />
+        <Switch>
+
+        <Route path="/">
+            <Home />
+          </Route>
+
+          <Route path="/hikes/new">
+            <HikeForm />
+          </Route>
+
+          <Route path="/hikes/:id">
+            <HikeCard />
+          </Route>
+
+          <Route path="/hikes">
+            <HikesContainer />
+          </Route>
+
+          
+
+        </Switch>
+
+      </Router>
+      
     </div>
   );
 }
