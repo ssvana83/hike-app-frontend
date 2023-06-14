@@ -1,8 +1,12 @@
 
 
-const Header = () => {
+const Header = ({slogan, storename}) => {
   return (
-    <div>Header</div>
+    <div>
+      <h1>{storename}</h1>
+      <h2>{slogan}</h2>
+
+    </div>
   )
 }
 

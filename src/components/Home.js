@@ -2,7 +2,9 @@
 
 const home = () => {
   return (
-    <div>home</div>
+    <div>
+      <div><img src={window.location.origin + "/logo512.png"} alt="default background"></img></div>
+    </div>
   )
 }
 
