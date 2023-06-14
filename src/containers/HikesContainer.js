@@ -4,25 +4,20 @@ import HikesList from "../components/HikesList"
 const HikesContainer = () => {
   const [hikes, setHikes] = useState([]);
   const [loading, setLoadiing] = useState(true);
+  
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const resp = await fetch("http://localhost:3000/hikes")
-        const data = await resp.json()
-        setHikes(data)
-        setLoadiing(false)
-      } catch (error) {
-        alert(error)
-      }
-    }
-    fetchData()
+    fetch('http://localhost:3000/hikes')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      setHikes(data)
+    })
   }, []);
 
-  if (!!loading) return <h1>Loading...</h1>
-
+  
   return (
     <>
-      <div>Our Hikes</div>
+      <h2>Our Hikes</h2>
       <HikesList hikes={hikes} />
     </>
   )
