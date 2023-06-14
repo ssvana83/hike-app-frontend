@@ -1,6 +1,6 @@
 import './App.css';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom"
-import Home from "./components/Home"
+import HomePage from "./components/HomePage";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import HikeCard from "./components/HikeCard";
@@ -24,7 +24,7 @@ function App() {
             <HikesContainer />
           </Route>
           <Route path="/">
-            <Home />
+            <HomePage />
           </Route>
 
         </Switch>
