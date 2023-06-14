@@ -3,8 +3,7 @@ import HikesList from "../components/HikesList"
 
 const HikesContainer = () => {
   const [hikes, setHikes] = useState([]);
-  const [loading, setLoadiing] = useState(true);
-  
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch('http://localhost:3000/hikes')
     .then(response => response.json())
@@ -14,7 +13,8 @@ const HikesContainer = () => {
     })
   }, []);
 
-  
+  if (!!loading) return <h1>Loading...</h1>
+
   return (
     <>
       <h2>Our Hikes</h2>
