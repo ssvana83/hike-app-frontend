@@ -1,3 +1,12 @@
+# React Application Frontend
+Hike App
+
+# Demo link:
+Access my site at [link](http://localhost:3000/hikes)
+
+# About the App
+Take a Hike is an app that 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
