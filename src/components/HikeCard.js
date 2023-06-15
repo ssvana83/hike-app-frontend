@@ -1,6 +1,4 @@
-
-
-const HikeCard = ({hike}) => {
+const HikeCard = ({ hike }) => {
   return (
     <div>
       <h3>Name: {hike.name}</h3>

@@ -1,5 +1,3 @@
-
-
 const Header = ({slogan, storename}) => {
   return (
     <div>

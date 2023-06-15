@@ -6,11 +6,11 @@ const HikesContainer = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch('http://localhost:9393/hikes')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data)
-      setHikes(data)
-    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data)
+        setHikes(data)
+      })
   }, []);
 
   // if (!!loading) return <h1>Loading...</h1>
