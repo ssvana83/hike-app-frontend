@@ -18,7 +18,7 @@ const StateCard = ({ state }) => {
   
   return (
     <div>
-      <h3>Name: <Link to={`/states/${finalState.id}`}>{finalState.statename}</Link></h3>
+      <h3>State Name: <Link to={`/states/${finalState.id}`}>{finalState.statename}</Link></h3>
       <h4>Town Name: {finalState.townname} </h4>
     </div>
   )

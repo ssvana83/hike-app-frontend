@@ -17,17 +17,7 @@ const Navbar = () => {
   return (
     <div>
       <NavLink
-        activeStyle={{
-          fontWeight: "bolder",
-          color: "red"
-        }}
-        exact
-        style={style}
-        to="/states"
-      >States</NavLink>
-
-      <NavLink
-        activeStyle={{
+        activestyle={{
           fontWeight: "bolder",
           color: "red"
         }}
@@ -37,7 +27,17 @@ const Navbar = () => {
       >Home</NavLink>
 
       <NavLink
-        activeStyle={{
+        activestyle={{
+          fontWeight: "bolder",
+          color: "red"
+        }}
+        exact
+        style={style}
+        to="/states"
+      >States</NavLink>
+
+      <NavLink
+        activestyle={{
           fontWeight: "bolder",
           color: "red"
         }}
@@ -47,7 +47,7 @@ const Navbar = () => {
       >Hikes</NavLink>
 
       <NavLink
-        activeStyle={{
+        activestyle={{
           fontWeight: "bolder",
           color: "red"
         }}
