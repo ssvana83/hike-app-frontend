@@ -4,14 +4,16 @@ import {Link, useParams} from "react-router-dom"
 const HikeCard = ({ hike }) => {
   const { id } = useParams();  
   const [hikeObject, setHikeObject] = useState({});
+  
 
-  useEffect(() => {
-    if (!hike) {
-      fetch(`http://localhost:9393/hikes/${id}`)
-      .then(resp => resp.json())
-      .then(hike => setHikeObject(hike))
-    }
-  }, [hike, id]);
+  // dont need this fetch since bringing in hike with state 
+  // useEffect(() => {
+  //   if (!hike) {
+  //     fetch(`http://localhost:9393/hikes/${id}`)
+  //     .then(resp => resp.json())
+  //     .then(hike => setHikeObject(hike))
+  //   }
+  // }, [hike, id]);
 
   const finalHike = hike ? hike : hikeObject
     
