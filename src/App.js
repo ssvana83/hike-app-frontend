@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import HikeCard from "./components/HikeCard";
 import HikeForm from "./components/HikeForm";
 import HikesContainer from "./containers/HikesContainer";
+import StatesContainer from './containers/StatesContainer';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Navbar />
         <Header slogan="Take a Hike!" storename="The Hikers Companion" />
         <Routes>
-          
+          <Route path="/states" element={<StatesContainer />} />
           <Route path="/hikes/new" element={<HikeForm />} />
           <Route path="/hikes/:id" element={<HikeCard />} />
           <Route path="/hikes" element={<HikesContainer />} />

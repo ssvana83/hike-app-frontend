@@ -23,6 +23,16 @@ const Navbar = () => {
         }}
         exact
         style={style}
+        to="/states"
+      >States</NavLink>
+
+      <NavLink
+        activeStyle={{
+          fontWeight: "bolder",
+          color: "red"
+        }}
+        exact
+        style={style}
         to="/"
       >Home</NavLink>
 
