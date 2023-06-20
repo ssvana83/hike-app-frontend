@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useHistory } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const HikeForm = () => {
   const [hike, setHike] = useState({
@@ -8,25 +8,42 @@ const HikeForm = () => {
     difficultyLevel: "",
     estimatedTime: ""
   })
+  // combined single states into one entire object
   // const [length, setLength] = useState("")
   // const [difficultyLevel, setDifficultyLevel] = useState("")
   // const [estimatedTime, setEstimatedTime] = useState("")
-  
+  const navigate = useNavigate()
+
   const handleChange = (e) => {
     setHike({
-        ...hike,
-        [e.target.name]: e.target.value
+      ...hike,
+      [e.target.name]: e.target.value
     })
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    debugger
-  }
 
+    const newHike = {
+      name: hike.name,
+      length: hike.length,
+      difficulty_level: hike.difficultyLevel,
+      estimated_time: hike.estimatedTime
+    }
 
-  return (
-    <>
+    fetch("http://localhost:9393/hikes", {
+      method: "POST",
+      headers: {
+        "Content_Type": "application/json",
+      },
+      body: JSON.stringify(newHike)
+    })
+    .then(() => navigate.push("/hikes"))
+
+}
+
+return (
+  <>
     <h3>Create New Hike</h3>
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
@@ -40,8 +57,8 @@ const HikeForm = () => {
       <input type="submit" value="Create Hike" />
 
     </form>
-    </>
-  )
+  </>
+)
 }
 
 export default HikeForm

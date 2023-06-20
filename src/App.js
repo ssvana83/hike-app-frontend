@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import HomePage from "./components/HomePage";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -13,21 +13,14 @@ function App() {
       <Router>
         <Navbar />
         <Header slogan="Take a Hike!" storename="The Hikers Companion" />
-        <Switch>
-          <Route path="/hikes/new">
-            <HikeForm />
-          </Route>
-          <Route path="/hikes/:id">
-            <HikeCard />
-          </Route>
-          <Route path="/hikes">
-            <HikesContainer />
-          </Route>
-          <Route path="/">
-            <HomePage />
-          </Route>
+        <Routes>
+          
+          <Route path="/hikes/new" element={<HikeForm />} />
+          <Route path="/hikes/:id" element={<HikeCard />} />
+          <Route path="/hikes" element={<HikesContainer />} />
+          <Route path="/" element={<HomePage />} />
 
-        </Switch>
+        </Routes>
       </Router>
     </div>
   );
