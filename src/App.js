@@ -19,6 +19,8 @@ function App() {
           <Route path="/hikes/:id" element={<HikeCard />} />
           <Route path="/hikes" element={<HikesContainer />} />
           <Route path="/" element={<HomePage />} />
+          
+
 
         </Routes>
       </Router>

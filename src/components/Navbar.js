@@ -6,10 +6,11 @@ const style = {
   padding: "1em",
   textDecoratioon: "none",
   color: "green",
-  backgroundColor: "rgb(2555, 120, 44)",
+  backgroundColor: "lightgreen",
   fontWeight: "bold",
   verticalAlign: "center"
 }
+
 
 
 const Navbar = () => {
