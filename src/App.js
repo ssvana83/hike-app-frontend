@@ -9,7 +9,6 @@ import HikeCard from "./components/HikeCard";
 import HikeForm from "./components/HikeForm";
 import HikesContainer from "./containers/HikesContainer";
 import StatesContainer from './containers/StatesContainer';
-import StateCard from './components/StateCard';
 import StateCardHikes from './components/StateCardHikes';
 
 function App() {
@@ -24,8 +23,6 @@ function App() {
       setStates(data)
     })
   }, [])
-
-  // filter of hikes to pass into route below. will need an event listener
   
   return (
     <div className="App">
@@ -35,8 +32,7 @@ function App() {
         <Routes>
 
           <Route path="/states" element={<StatesContainer states={ states } />} />
-          {/* <Route path="/states/:id" element={<StateCard  states={states} />} /> */}
-          <Route path="/states/:id/hikes" element={<StateCard  states={ states } />} />
+          <Route path="/states/:id/hikes" element={<StateCardHikes  states={ states } />} />
           <Route path="/hikes/new" element={<HikeForm />} />
           <Route path="/hikes/:id" element={<HikeCard />} />
           <Route path="/hikes" element={<HikesContainer hikes={ hikes }/>} />

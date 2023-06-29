@@ -6,15 +6,6 @@ const HikeCard = ({ hike }) => {
   const [hikeObject, setHikeObject] = useState({});
   
 
-  // dont need this fetch since bringing in hike with state 
-  // useEffect(() => {
-  //   if (!hike) {
-  //     fetch(`http://localhost:9393/hikes/${id}`)
-  //     .then(resp => resp.json())
-  //     .then(hike => setHikeObject(hike))
-  //   }
-  // }, [hike, id]);
-
   const finalHike = hike ? hike : hikeObject
     
   

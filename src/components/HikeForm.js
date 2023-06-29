@@ -8,10 +8,7 @@ const HikeForm = () => {
     difficultyLevel: "",
     estimatedTime: ""
   })
-  // combined single states into one entire object
-  // const [length, setLength] = useState("")
-  // const [difficultyLevel, setDifficultyLevel] = useState("")
-  // const [estimatedTime, setEstimatedTime] = useState("")
+  
   const navigate = useNavigate()
 
   const handleChange = (e) => {
