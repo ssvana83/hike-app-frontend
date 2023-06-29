@@ -10,10 +10,11 @@ import HikeForm from "./components/HikeForm";
 import HikesContainer from "./containers/HikesContainer";
 import StatesContainer from './containers/StatesContainer';
 import StateCard from './components/StateCard';
+import StateCardHikes from './components/StateCardHikes';
 
 function App() {
 
-  const [states, setStates] = useState([])
+  const [ states, setStates ] = useState([])
   const [hikes, setHikes] = useState([])
   useEffect(() => {
     fetch('http://localhost:9393/states')
@@ -21,7 +22,6 @@ function App() {
     .then(data => {
       console.log(data)
       setStates(data)
-      // setPlayers(data)
     })
   }, [])
 
@@ -33,14 +33,14 @@ function App() {
         <Navbar />
         <Header slogan="Take a Hike!" storename="The Hikers Companion" />
         <Routes>
-          <Route path="/states" element={<StatesContainer states={states} />} />
-          <Route path="/states/:id" element={<StateCard  />} />
+
+          <Route path="/states" element={<StatesContainer states={ states } />} />
+          {/* <Route path="/states/:id" element={<StateCard  states={states} />} /> */}
+          <Route path="/states/:id/hikes" element={<StateCard  states={ states } />} />
           <Route path="/hikes/new" element={<HikeForm />} />
           <Route path="/hikes/:id" element={<HikeCard />} />
-          <Route path="/hikes" element={<HikesContainer hikes={hikes}/>} />
+          <Route path="/hikes" element={<HikesContainer hikes={ hikes }/>} />
           <Route path="/" element={<HomePage />} />
-          
-
 
         </Routes>
       </Router>
