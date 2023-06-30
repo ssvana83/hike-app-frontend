@@ -7,6 +7,8 @@ const HikeCard = ({ hike }) => {
   
 
   const finalHike = hike ? hike : hikeObject
+
+  
     
   
   return (
