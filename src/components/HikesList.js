@@ -1,8 +1,9 @@
 import HikeCard from "./HikeCard"
 
-const HikesList = ( hikes ) => {
-  console.log (hikes)
-  const renderHikes = hikes.map(hike => <HikeCard key={hike.id} hike={hike} />)
+
+const HikesList = ( {states} ) => {
+  console.log (states)
+  const renderHikes = states.map(hike => <HikeCard key={hike.id} hike={hike} />)
   return (
     <div>
       {renderHikes}
@@ -10,4 +11,5 @@ const HikesList = ( hikes ) => {
   )
 }
 
-export default HikesList
+export default HikesList;
+

@@ -1,4 +1,4 @@
-import StateCard from "./StateCard"
+import StateCard from "./StateCard.js"
 
 const StatesList = ({ states }) => {
 
