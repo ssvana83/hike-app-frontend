@@ -1,22 +1,33 @@
 import React from 'react'
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import HikeCard from './HikeCard';
+
+
 
 const StateCardHikes = ({ states }) => {
   const { id } = useParams();
-  const [hikeObject, setHikeObject] = useState({});
+  const [stateObject, setStateObject] = useState({});
 
-  // const finalHike = hike ? hike: hikeObject
+  useEffect(() => {   
+    
+        fetch(`http://localhost:9393/states/${id}/hikes`)
+        .then(resp => resp.json())
+        .then(states => setStateObject(states))
+    
+}, [states, id]);
+
+  const finalHike = states ? states: stateObject
 
 
   console.log(states[id])
   console.log(id)
 
-  // const hikeCards = state.hikes.map((hike, index) => <HikeCard key={index} hike={hike} state={state}></HikeCard>)
-  
+  // const hikeCard = stateObject.hikes.map((hike, index) => <HikeCard key={ index } hike={ hike } states={ states } />)
   
   return (
     <div>
+      <h3>Name: <Link to={`/hikes/${finalHike.id}`}>{finalHike.name}</Link></h3>
       {/* <ul>
         <li>I am the Hikes</li>
       </ul> */}
@@ -27,3 +38,5 @@ const StateCardHikes = ({ states }) => {
 }
 
 export default StateCardHikes;
+
+// /states/:id/hikes
