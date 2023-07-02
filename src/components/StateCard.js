@@ -1,10 +1,9 @@
-import {useState, useEffect} from "react"
-import {Link, useParams} from "react-router-dom"
+import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
+import Hike from './Hike';
 
 const StateCard = ({ state, deleteState, hikes }) => {
-  const [stateObject, setStateObject] = useState({});
-  const finalState = state ? state : stateObject
-    
+  
   
   return (
     <div>
@@ -12,8 +11,7 @@ const StateCard = ({ state, deleteState, hikes }) => {
        */}
        {/* <h3>State Name: <Link to={`/states/${finalState.id}/hikes`}>{finalState.statename}</Link></h3> */}
        <Link to={`/states/${state.id}/hikes`}>{ state.statename }</Link> - <button onClick={ () => deleteState(state.id) }>Delete</button>
-      {/* <h2>Hike Name: {finalState.hikes.name} </h2> */}
-      {/* <h4>Town Name: {finalState.townname} </h4> */}
+       {/* <Hike hikes={state.hikes}/> */}
     </div>
   )
 }

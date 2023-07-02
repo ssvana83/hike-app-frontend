@@ -43,6 +43,16 @@ const Navbar = () => {
         }}
         exact
         style={style}
+        to="/states/new"
+      >New State</NavLink>
+
+      <NavLink
+        activestyle={{
+          fontWeight: "bolder",
+          color: "red"
+        }}
+        exact
+        style={style}
         to="/hikes"
       >Hikes</NavLink>
 
@@ -54,7 +64,7 @@ const Navbar = () => {
         exact
         style={style}
         to="/hikes/new"
-      >NewHike</NavLink>
+      >New Hike</NavLink>
     </div>
   )
 }
