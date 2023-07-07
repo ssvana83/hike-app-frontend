@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const NewStateForm = () => {
-  const [ statename, setStatename ] = useState("");
-
+  const [statename, setStatename] = useState("");
   const navigate = useNavigate();
 
   const handleChange = e => {
@@ -12,7 +11,7 @@ const NewStateForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+
     const newState = {
       statename: statename
     }
@@ -24,21 +23,19 @@ const NewStateForm = () => {
       },
       body: JSON.stringify(newState)
     })
-    
-    .then(() => navigate("/states"))
+      .then(() => navigate("/states"))
   }
+
 
   return (
     <div>
       <h1>New State</h1>
-      <form onSubmit={ handleSubmit }>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="statename" value={ statename } autoFocus="true" onChange={handleChange}/>
+          <input type="text" id="statename" value={statename} autoFocus="true" onChange={handleChange} />
         </div>
-
-        <input type="submit" value={"Create State"}/>
-        
+        <input type="submit" value={"Create State"} />
       </form>
     </div>
   )

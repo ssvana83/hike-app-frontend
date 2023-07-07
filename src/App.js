@@ -31,7 +31,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
-        <Header slogan="Take a Hike!" storename="The Hikers Companion" />
+        <Header storename="The Hikers Companion" />
         <Routes>
             
           <Route path="/" element={<HomePage />} />
@@ -39,6 +39,7 @@ function App() {
           <Route path="/states/:state_id/hikes" element={<StateCardHikes  states={ states } />} />
           <Route path="/states/new" element={<NewStateForm />} />
 
+          <Route path="/states/:state_id/hikes/new" element={ <HikeForm /> } />
           <Route path="/hikes" element={<HikesList states={ states }/>} />
           <Route path="/hikes/:id" element={<HikeCard />} />
           <Route path="/hikes/new" element={<HikeForm />} />
