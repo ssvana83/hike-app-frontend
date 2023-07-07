@@ -2,22 +2,19 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const NewStateForm = () => {
-  const [ name, setName ] = useState("");
+  const [ statename, setStatename ] = useState("");
 
   const navigate = useNavigate();
 
   const handleChange = e => {
-    setName({
-      ...name,
-      [e.target.stateName]: e.target.value
-    })
+    setStatename(e.target.value)
   }
 
   const handleSubmit = e => {
     e.preventDefault();
     
     const newState = {
-      state_name: name.statename
+      statename: statename
     }
 
     fetch("http://localhost:9393/states", {
@@ -27,6 +24,7 @@ const NewStateForm = () => {
       },
       body: JSON.stringify(newState)
     })
+    
     .then(() => navigate("/states"))
   }
 
@@ -36,7 +34,7 @@ const NewStateForm = () => {
       <form onSubmit={ handleSubmit }>
         <div>
           <label htmlFor="name">Name:</label>
-          <input type="text" id="statename" value={ name.statename } autoFocus="true" onChange={handleChange}/>
+          <input type="text" id="statename" value={ statename } autoFocus="true" onChange={handleChange}/>
         </div>
 
         <input type="submit" value={"Create State"}/>

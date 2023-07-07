@@ -14,7 +14,7 @@ import NewStateForm from './components/NewStateForm';
 
 function App() {
   const [ states, setStates ] = useState([])
-  const [hikes, setHikes] = useState([])
+  // const [hikes, setHikes] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:9393/states')
@@ -24,6 +24,8 @@ function App() {
       setStates(data)
     })
   }, [])
+
+
   
   return (
     <div className="App">
@@ -34,7 +36,7 @@ function App() {
             
           <Route path="/" element={<HomePage />} />
           <Route path="/states" element={<StatesList states={ states } />} />
-          <Route path="/states/:id/hikes" element={<StateCardHikes  states={ states } />} />
+          <Route path="/states/:state_id/hikes" element={<StateCardHikes  states={ states } />} />
           <Route path="/states/new" element={<NewStateForm />} />
 
           <Route path="/hikes" element={<HikesList states={ states }/>} />

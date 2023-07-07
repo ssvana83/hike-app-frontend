@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 import Hike from './Hike';
 
-const StateCard = ({ state, deleteState, hikes }) => {
+const StateCard = ({ state, deleteState }) => {
   
   return (
     <div>
