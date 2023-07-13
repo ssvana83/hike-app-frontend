@@ -11,10 +11,8 @@ const HikeForm = ({foundState}) => {
   })
   
   const navigate = useNavigate()
-  console.log(foundState)
-
+ 
   const handleChange = (e) => {
-    
     setHike({
       ...hike,
       [e.target.name]: e.target.value
@@ -22,9 +20,7 @@ const HikeForm = ({foundState}) => {
   }
 
   const handleSubmit = e => {
-    console.log(hike)
     e.preventDefault()
-
     const newHike = {
       name: hike.name,
       length: hike.length,
@@ -47,6 +43,7 @@ const HikeForm = ({foundState}) => {
 
 return (
   <>
+  
     <h3>Create New Hike</h3>
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
@@ -60,6 +57,7 @@ return (
       <input type="submit" value="Create Hike" />
 
     </form>
+    
   </>
 )
 }

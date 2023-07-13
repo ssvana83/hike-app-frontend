@@ -26,7 +26,6 @@ const StateCardHikes = ({ states }) => {
   }, states);
 
   console.log(hikes)
-  // map over hikes and then render 
   
   return (
     <div>

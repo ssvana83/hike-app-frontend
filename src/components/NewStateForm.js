@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const NewStateForm = () => {
+const NewStateForm = ({ handleStateAdd }) => {
   const [statename, setStatename] = useState("");
   const navigate = useNavigate();
 
@@ -21,9 +21,12 @@ const NewStateForm = () => {
       },
       body: JSON.stringify(newState)
     })
-      .then(() => navigate("/states"))
+      .then(resp => resp.json())
+      .then(data => handleStateAdd(data))
+      // .then(() => navigate("/states"))
   }
 
+  
   return (
     <div>
       <h1>New State</h1>

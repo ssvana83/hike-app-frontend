@@ -23,6 +23,18 @@ function App() {
       })
   }, [])
 
+  // create a submit handler function
+  // this function will handle the submission of a new state and also update overall state
+  function handleStateAdd(addedState) {
+    const updatedStates = [...states, addedState]
+    setStates(updatedStates)
+  }
+
+  function handleDeleteState(deletedState) {
+    const updatedStates = states.filter((state) => state.id !== deletedState.id);
+    setStates(updatedStates)
+  }
+
   return (
     <div className="App">
       <Router>
@@ -30,8 +42,8 @@ function App() {
         <Header storename="The Hikers Companion" />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/states" element={<StatesList states={states} />} />
-          <Route path="/states/new" element={<NewStateForm />} />
+          <Route path="/states" element={<StatesList states={states} onDeleteState={handleDeleteState}/>} />
+          <Route path="/states/new" element={<NewStateForm handleStateAdd={handleStateAdd}/>} />
           <Route path="/states/:state_id/hikes" element={<StateCardHikes states={states} />} />
           <Route path="/states/:state_id/hikes/new" element={<HikeForm />} />
           <Route path="/hikes" element={<HikesList states={states} />} />
