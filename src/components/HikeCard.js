@@ -5,11 +5,7 @@ const HikeCard = ({ hike }) => {
   const { id } = useParams();  
   const [hikeObject, setHikeObject] = useState({});
   
-
   const finalHike = hike ? hike : hikeObject
-
-  
-    
   
   return (
     <div>

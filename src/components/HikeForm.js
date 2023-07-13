@@ -1,17 +1,20 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const HikeForm = () => {
+const HikeForm = ({foundState}) => {
   const [hike, setHike] = useState({
     name: "",
     length: "",
     difficultyLevel: "",
-    estimatedTime: ""
+    estimatedTime: "",
+    state_id: "",
   })
   
   const navigate = useNavigate()
+  console.log(foundState)
 
   const handleChange = (e) => {
+    
     setHike({
       ...hike,
       [e.target.name]: e.target.value
@@ -19,23 +22,26 @@ const HikeForm = () => {
   }
 
   const handleSubmit = e => {
+    console.log(hike)
     e.preventDefault()
 
     const newHike = {
       name: hike.name,
       length: hike.length,
       difficulty_level: hike.difficultyLevel,
-      estimated_time: hike.estimatedTime
+      estimated_time: hike.estimatedTime,
+      state_id: foundState.id
     }
-
-    fetch("http://localhost:9393/hikes", {
+    console.log(newHike)
+    fetch(`http://localhost:9393/states/${foundState.id}/hikes`, {
       method: "POST",
       headers: {
         "Content_Type": "application/json",
       },
       body: JSON.stringify(newHike)
     })
-    .then(() => navigate.push("/hikes"))
+    .then((r) => r.json())
+    .then((hike) => console.log(hike))
 
 }
 

@@ -1,14 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-
-import HikeCard from './HikeCard';
-import Hike from './Hike';
+import HikeForm from './HikeForm';
+import HikesList from './HikesList';
 
 const StateCardHikes = ({ states }) => {
-  const [hike, setHike] = useState([])
+  const [hikes, setHikes] = useState([])
   const { id } = useParams();
 
+  const exactState = parseInt(window.location.href.split('/')[4])
+  const foundState = states.find(state => state.id === exactState)
 
   const [stateObject, setStateObject] = useState({});
   useEffect(() => {
@@ -17,40 +18,25 @@ const StateCardHikes = ({ states }) => {
       .then(states => setStateObject(states))
   }, states);
 
-  // const finalHike = states ? states : stateObject
+ 
+  useEffect(() => {
+    fetch(`http://localhost:9393/states/${exactState}`)
+      .then(resp => resp.json())
+      .then(state => setHikes(state.hikes))
+  }, states);
 
-
-console.log(stateObject)
-
-
-  // const hikeCard = stateObject.hikes.map((hike, index) => <HikeCard key={ index } hike={ hike } states={ states } />)
-// const renderStateHikes = ()
-// const hikes = stateObject.map(hike => hike.state_id <= id)
-// const renderHikes = hikes.map(state => <StateCard key={state.id} state={state} hikes={state.hikes} />
-// const renderHikes = hikes.map(hike => <HikeCard name={hike.name} />)
-// const renderHikes = stateObject.hikes.filter((hike) => hike.state_id == id)
-
+  console.log(hikes)
+  // map over hikes and then render 
   
   return (
     <div>
-      <h1>Create a new hike in this state below</h1>
-      <form>
-      <label htmlFor="name">Name</label>
-      <input type="text" name="name" value={hike.name} required /><br />
-      <label htmlFor="length">Length (miles)</label>
-      <input type="number" name="length" value={hike.length} required /><br />
-      <label htmlFor="difficultyLevel">Difficulty Level</label>
-      <input type="number" name="difficultyLevel" value={hike.difficultyLevel} required /><br />
-      <label htmlFor="estimatedTime">Estimated Time (minutes)</label>
-      <input type="number" name="estimatedTime" value={hike.estimatedTime} required /><br />
-      <input type="submit" value="Create Hike" />
-
-    </form>
-      {/* <h3>Hikes in this state: <Link to={`/hikes/${finalHike.id}`}>{finalHike.name}</Link></h3> */}
-      {/* {renderHikes} */}
+      <HikesList hikes={hikes} />
+      <HikeForm setHikes={setHikes} foundState={foundState} />
     </div>
   )
 }
 
 export default StateCardHikes;
+
+
 

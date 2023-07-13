@@ -11,11 +11,9 @@ const NewStateForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
     const newState = {
       statename: statename
     }
-
     fetch("http://localhost:9393/states", {
       method: "POST",
       headers: {
@@ -25,7 +23,6 @@ const NewStateForm = () => {
     })
       .then(() => navigate("/states"))
   }
-
 
   return (
     <div>
