@@ -30,7 +30,7 @@ function App() {
     setStates(updatedStates)
   }
 
-  function handleDeleteState(deletedState) {
+  function deleteState(deletedState) {
     const updatedStates = states.filter((state) => state.id !== deletedState.id);
     setStates(updatedStates)
   }
@@ -42,7 +42,7 @@ function App() {
         <Header storename="The Hikers Companion" />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/states" element={<StatesList states={states} onDeleteState={handleDeleteState}/>} />
+          <Route path="/states" element={<StatesList states={states} deleteState={deleteState}/>} />
           <Route path="/states/new" element={<NewStateForm handleStateAdd={handleStateAdd}/>} />
           <Route path="/states/:state_id/hikes" element={<StateCardHikes states={states} />} />
           <Route path="/states/:state_id/hikes/new" element={<HikeForm />} />

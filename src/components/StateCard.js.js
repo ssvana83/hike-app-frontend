@@ -1,15 +1,15 @@
 import {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 
-const StateCard = ({ state, onDeleteState }) => {
+const StateCard = ({ state, deleteState }) => {
   
 
-  function handleDeleteState() {
-    fetch(`http://localhost:4000/state/${state.id}`, {
+  const handleDeleteState = () => {
+    fetch(`http://localhost:9393/states/${state.id}`, {
       method: "DELETE",
     })
     .then((r) => r.json())
-    .then(() => onDeleteState(state));
+    .then(() => deleteState(state));
   }
 
   
@@ -17,7 +17,7 @@ const StateCard = ({ state, onDeleteState }) => {
   return (
     <div>
       <Link to={`/states/${state.id}/hikes`}>{ state.statename }
-      </Link> - <button onClick={ () => onDeleteState(state.id) }>Delete</button>
+      </Link> - <button onClick={handleDeleteState}>Delete</button>
     </div>
   )
 }
