@@ -24,11 +24,10 @@ const StateCardHikes = ({ states }) => {
       .then(resp => resp.json())
       .then(state => setHikes(state.hikes))
   }, states);
-
-  console.log(hikes)
   
   return (
-    <div>
+    <div> 
+      <h2>Hikes in this state</h2>
       <HikesList hikes={hikes} />
       <HikeForm setHikes={setHikes} foundState={foundState} />
     </div>

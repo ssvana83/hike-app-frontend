@@ -11,6 +11,7 @@ import StateCardHikes from './components/StateCardHikes';
 import StatesList from './components/StatesList';
 import HikesList from './components/HikesList';
 import NewStateForm from './components/NewStateForm';
+import StateEdit from './components/StateEdit';
 
 function App() {
   const [states, setStates] = useState([])
@@ -23,8 +24,6 @@ function App() {
       })
   }, [])
 
-  // create a submit handler function
-  // this function will handle the submission of a new state and also update overall state
   function handleStateAdd(addedState) {
     const updatedStates = [...states, addedState]
     setStates(updatedStates)
@@ -35,6 +34,17 @@ function App() {
     setStates(updatedStates)
   }
 
+  function handleUpdateState(updatedStateObj) {
+    const updatedStates = states.map((state) => {
+      if (state.id === updatedStateObj.id) {
+        return updatedStateObj;
+      } else {
+        return state;
+    }
+  });
+    setStates(updatedStates);
+}
+
   return (
     <div className="App">
       <Router>
@@ -42,10 +52,11 @@ function App() {
         <Header storename="The Hikers Companion" />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/states" element={<StatesList states={states} deleteState={deleteState}/>} />
+          <Route path="/states" element={<StatesList states={states} deleteState={deleteState} onUpdateState={handleUpdateState}/>} />
           <Route path="/states/new" element={<NewStateForm handleStateAdd={handleStateAdd}/>} />
           <Route path="/states/:state_id/hikes" element={<StateCardHikes states={states} />} />
           <Route path="/states/:state_id/hikes/new" element={<HikeForm />} />
+          <Route path="/states/:id" element={<StateEdit onUpdateState={handleUpdateState}/>}/>
           <Route path="/hikes" element={<HikesList states={states} />} />
           <Route path="/hikes/:id" element={<HikeCard />} />
         </Routes>

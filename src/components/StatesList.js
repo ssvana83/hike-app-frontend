@@ -1,18 +1,16 @@
 import StateCard from "./StateCard.js"
 
-const StatesList = ({ states, deleteState }) => {
-
-  // const renderStates = states.map(state => <StateCard key={state.id} state={state} hikes={state.hikes} />)
+const StatesList = ({ states, deleteState, onUpdateState }) => {
 
   const renderStates = states.map((state) => (
     <StateCard 
+      onUpdateState={onUpdateState}
       deleteState={deleteState}
       key={state.id}
       state={state}
       hikes={state.hikes}
     />
   ))
-  console.log(states)
 
   return (
     <div>

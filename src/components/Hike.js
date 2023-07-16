@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Hike = ({ hike }) => {
-  console.log(hike)
 
   return (
     <div>
@@ -11,6 +10,7 @@ const Hike = ({ hike }) => {
       <br />
     </div>
   )
+  
 }
 
 export default Hike;

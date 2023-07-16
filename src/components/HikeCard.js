@@ -1,12 +1,12 @@
-import {useState, useEffect} from "react"
-import {Link, useParams} from "react-router-dom"
+import { useState, useEffect } from "react"
+import { Link, useParams } from "react-router-dom"
 
 const HikeCard = ({ hike }) => {
-  const { id } = useParams();  
+  const { id } = useParams();
   const [hikeObject, setHikeObject] = useState({});
-  
+
   const finalHike = hike ? hike : hikeObject
-  
+
   return (
     <div>
       <h3>Name: <Link to={`/hikes/${finalHike.id}`}>{finalHike.name}</Link></h3>

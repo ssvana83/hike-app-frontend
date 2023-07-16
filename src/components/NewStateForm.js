@@ -23,10 +23,9 @@ const NewStateForm = ({ handleStateAdd }) => {
     })
       .then(resp => resp.json())
       .then(data => handleStateAdd(data))
-      // .then(() => navigate("/states"))
+      .then(() => navigate("/states"))
   }
 
-  
   return (
     <div>
       <h1>New State</h1>

@@ -1,4 +1,5 @@
-const Header = ({slogan, storename}) => {
+const Header = ({ slogan, storename }) => {
+
   return (
     <div>
       <h1>{storename}</h1>
@@ -6,6 +7,7 @@ const Header = ({slogan, storename}) => {
 
     </div>
   )
+
 }
 
-export default Header
+export default Header;
